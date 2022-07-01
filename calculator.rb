@@ -1,8 +1,16 @@
-require 'rspec'
+require "rspec"
 
 class Calculator
   def add(number_one, number_two)
     return number_one + number_two
+  end
+
+  def even(number)
+    if number % 2 == 0
+      p true
+    else
+      p false
+    end
   end
 
   def subtract(number_one, number_two)
@@ -30,13 +38,22 @@ end
 
 # puts calculator.add(1, 2)
 
+# RSpec.describe Calculator do
+#   describe "#add" do
+#     it "should return the sum of two numbers" do
+#       calculator = Calculator.new
+#       result = calculator.add(1, 3)
+#       expect(result).to eq(4)
+#     end
+#   end
+# end
 
 RSpec.describe Calculator do
-  describe '#add' do
-    it 'should return the sum of two numbers' do
+  describe "#even" do
+    it "should tell you if number is even" do
       calculator = Calculator.new
-      result = calculator.add(1, 3)
-      expect(result).to eq(4)
+      result = calculator.even(-12)
+      expect(result).to eq(true)
     end
   end
 end
